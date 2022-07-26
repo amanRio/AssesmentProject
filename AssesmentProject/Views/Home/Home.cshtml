@@ -1,0 +1,31 @@
+﻿@using AssesmentProject.Models
+@model List<Status>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("state","Home"))
+{
+    if (Model != null)
+    {
+        foreach (var status in Model)
+        {
+
+            <table>
+                <tr>
+                    <td>
+                        @status.Number
+                    </td>
+                    <td>
+                        @status.Message
+                    </td>
+                </tr>
+            </table>
+        }
+    }
+    else { 
+    <p>Please press the button</p>
+    }
+
+    <input type="submit" class="btn-secondary" id="submitButton" />
+}
